@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحقق من تصريح أجير - Ajeer Permit Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            direction: rtl;
+            text-align: right;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Top Fixed/Flow Navbar with logos on extreme left and right */
+        .top-navbar {
+            background-color: #ffffff;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            width: 100%;
+        }
+        .top-navbar .logo-right img {
+            height: 35px;
+            object-fit: contain;
+        }
+        .top-navbar .logo-left img {
+            height: 35px;
+            object-fit: contain;
+        }
+
+        /* Main Container Wrap */
+        .page-wrapper {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: #ffffff;
+            padding: 35px;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Card Inner Header Box */
+        .card-header-box {
+            display: flex;
+            border: 1px solid #d3d3d3;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .header-cell {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-status {
+            width: 25%;
+            font-size: 16px;
+            font-weight: 700;
+            color: #008000;
+            border-left: 1px solid #d3d3d3;
+        }
+        .header-title {
+            width: 45%;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2b2b2b;
+            text-align: center;
+        }
+        .header-logos {
+            width: 30%;
+            border-right: 1px solid #d3d3d3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .header-logos img {
+            height: 45px;
+            object-fit: contain;
+        }
+
+        /* Sub Status Message */
+        .sub-message {
+            text-align: center;
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* Data Section Tables */
+        .data-section {
+            margin-bottom: 20px;
+            border: 1px solid #b0c4de;
+        }
+        .section-title {
+            background-color: #e8eef4;
+            color: #111;
+            text-align: center;
+            font-weight: 700;
+            padding: 8px;
+            font-size: 15px;
+            border-bottom: 1px solid #b0c4de;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        table td {
+            border: 1px solid #d3d3d3;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        .field-label {
+            background-color: #ffffff;
+            color: #333;
+            font-weight: 600;
+            width: 25%;
+        }
+        .field-value {
+            color: #000;
+            font-weight: 700;
+            width: 25%;
+        }
+
+        /* Floating Green Chat Icon at Bottom Left */
+        .floating-chat-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 55px;
+            height: 55px;
+            background-color: #388e3c;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+        }
+        .floating-chat-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: #ffffff;
+        }
+
+        /* Print Button */
+        .print-btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .print-btn {
+            background-color: #004d40;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            font-size: 15px;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .print-btn:hover {
+            background-color: #00332c;
+        }
+
+        @media print {
+            .top-navbar, .floating-chat-btn, .print-btn-container {
+                display: none !important;
+            }
+            body {
+                background-color: #fff;
+            }
+            .page-wrapper {
+                padding: 0;
+            }
+            .container {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Corner Logos Navigation Bar -->
+    <div class="top-navbar">
+        <div class="logo-right">
+            <img src="ajeer-logo.png" alt="Ajeer Logo">
+        </div>
+        <div class="logo-left">
+            <img src="human-resource-logo.png" alt="Human Resources Logo">
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="container">
+            
+            <!-- Inner Box Header -->
+            <div class="card-header-box">
+                <div class="header-cell header-status">
+                    ساري / فعال
+                </div>
+                <div class="header-cell header-title">
+                    التحقق من تصريح أجير
+                </div>
+                <div class="header-cell header-logos">
+                    <img src="human-resource-logo.png" alt="HR Logo">
+                    <img src="ajeer-logo.png" alt="Ajeer Logo">
+                </div>
+            </div>
+
+            <div class="sub-message">
+                تم التحقق من التصريح بنجاح
+            </div>
+
+            <!-- بيانات التصريح -->
+            <div class="data-section">
+                <div class="section-title">بيانات التصريح</div>
+                <table>
+                    <tr>
+                        <td class="field-label">رقم التصريح</td>
+                        <td class="field-value">TQ6178214</td>
+                        <td class="field-label">نوع التصريح</td>
+                        <td class="field-value">تصريح تعاقد أجير</td>
+                    </tr>
+                    <tr>
+                        <td class="field-label">تاريخ بداية التصريح</td>
+                        <td class="field-value">2026-09-10</td>
+                        <td class="field-label">تاريخ نهاية التصريح</td>
+                        <td class="field-value">2026-12-09</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- بيانات العامل -->
+            <div class="data-section">
+                <div class="section-title">بيانات العامل</div>
+                <table>
+                    <tr>
+                        <td class="field-label">اسم العامل</td>
+                        <td class="field-value">RIAS MOLLA</td>
+                        <td class="field-label">رقم الهوية / الإقامة</td>
+                        <td class="field-value">2520312659</td>
+                    </tr>
+                    <tr>
+                        <td class="field-label">الجنسية</td>
+                        <td class="field-value">بنجلاديش</td>
+                        <td class="field-label">المهنة</td>
+                        <td class="field-value">عامل تحميل وتنزيل</td>
+                    </tr>
+                    <tr>
+                        <td class="field-label">الجنس</td>
+                        <td class="field-value">ذكر</td>
+                        <td class="field-label">تاريخ الميلاد</td>
+                        <td class="field-value">2000-12-30</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- بيانات المنشأة -->
+            <div class="data-section">
+                <div class="section-title">بيانات المنشأة</div>
+                <table>
+                    <tr>
+                        <td class="field-label">رقم المنشأة</td>
+                        <td class="field-value">2-6978451</td>
+                        <td class="field-label">اسم المنشأة</td>
+                        <td class="field-value">نقليات مشاري الحربي</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Print Button -->
+            <div class="print-btn-container">
+                <button class="print-btn" onclick="window.print()">طباعة التصريح</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Green Chat Icon at Bottom Left -->
+    <div class="floating-chat-btn" title="Support Chat">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
+            <circle cx="8" cy="10" r="1.2"/>
+            <circle cx="12" cy="10" r="1.2"/>
+            <circle cx="16" cy="10" r="1.2"/>
+        </svg>
+    </div>
+
+</body>
+</html>
